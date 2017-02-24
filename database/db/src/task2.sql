@@ -326,29 +326,28 @@ BEGIN
 
       hotelowners:=(SELECT Count(ownerpersonnummer) FROM hotels WHERE locationcountry=NEW.locationcountry
                                                                       AND locationname=NEW.locationarea);
+      UPDATE persons
+      SET budget =  budget+ getval('cityvisit')/hotelowners
+      WHERE country = (SELECT Hl.country
+                       FROM (SELECT A1.country, A1.personnummer, hotels.locationcountry, hotels.locationname
+                             FROM (SELECt country , personnummer FROM persons WHERE country <> NEW.country AND personnummer <> NEW.personnummer) as A1
+                               JOIN
+                               hotels ON persons.country = hotels.ownercountry AND persons.personnummer = hotels.ownerpersonnummer) as Hl
+                       WHERE Hl.locationcountry = NEW.locationcountry AND Hl.locationname = NEW.locationarea
+                       ORDER BY Hl.country, Hl.personnummer)
+            AND personnummer = (SELECT Hl.personnummer
+                                FROM (SELECT A1.country, A1.personnummer, hotels.locationcountry, hotels.locationname
+                                      FROM (SELECt country , personnummer FROM persons WHERE country <> NEW.country AND personnummer <> NEW.personnummer) as A1
+                                        JOIN
+                                        hotels ON persons.country = hotels.ownercountry AND persons.personnummer = hotels.ownerpersonnummer) as Hl
+                                WHERE Hl.locationcountry = NEW.locationcountry AND Hl.locationname = NEW.locationarea
+                                ORDER BY Hl.country, Hl.personnummer);
       IF EXISTS(SELECT * FROM hotels WHERE locationcountry=NEW.locationcountry
                                            AND locationname=NEW.locationarea
                                            AND ownercountry = NEW.country
                                            AND ownerpersonnummer = NEW.personnummer)THEN
         --The traveling person have a hotel in the city.
-        UPDATE persons
-        SET budget =  budget+ getval('cityvisit')/hotelowners
-        WHERE country = (SELECT ownercountry FROM hotels WHERE locationcountry = NEW.locationcountry
-                                                               AND locationname = NEW.locationarea
-                                                               AND ownercountry <> NEW.country
-                                                               AND ownerpersonnummer <> NEW.personnummer)
-              AND personnummer = (SELECT ownerpersonnummer FROM hotels WHERE locationcountry = NEW.locationcountry
-                                                                             AND locationname = NEW.locationarea
-                                                                             AND ownercountry <> NEW.country
-                                                                             AND ownerpersonnummer <> NEW.personnummer);
         NEW.budget = NEW.budget + getval('cityvisit')/hotelowners;
-      ELSE
-        UPDATE persons
-        SET budget =  budget+ getval('cityvisit')/hotelowners
-        WHERE country = (SELECT ownercountry FROM hotels WHERE locationcountry = NEW.locationcountry
-                                                               AND locationname = NEW.locationarea)
-              AND personnummer = (SELECT ownerpersonnummer FROM hotels WHERE locationcountry = NEW.locationcountry
-                                                                             AND locationname = NEW.locationarea);
       END IF;
     END IF;
     visitmoney := (SELECT visitbonus FROM cities WHERE country=NEW.locationcountry AND name=NEW.locationarea);

@@ -18,8 +18,8 @@
       <file leaf-file-name="task2.sql" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/src/task2.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2247">
-              <caret line="441" column="107" lean-forward="false" selection-start-line="441" selection-start-column="107" selection-end-line="441" selection-end-column="107" />
+            <state relative-caret-position="306">
+              <caret line="261" column="5" lean-forward="true" selection-start-line="261" selection-start-column="5" selection-end-line="261" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -592,12 +592,12 @@
       <workItem from="1487804323885" duration="1144000" />
       <workItem from="1487841436818" duration="4605000" />
       <workItem from="1487853684885" duration="6848000" />
-      <workItem from="1487939112231" duration="7652000" />
+      <workItem from="1487939112231" duration="11682000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51876000" />
+    <option name="totallyTimeSpent" value="55906000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -781,8 +781,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/src/task2.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2247">
-          <caret line="441" column="107" lean-forward="false" selection-start-line="441" selection-start-column="107" selection-end-line="441" selection-end-column="107" />
+        <state relative-caret-position="306">
+          <caret line="261" column="5" lean-forward="true" selection-start-line="261" selection-start-column="5" selection-end-line="261" selection-end-column="5" />
           <folding />
         </state>
       </provider>
