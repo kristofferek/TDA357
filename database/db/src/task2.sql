@@ -61,18 +61,12 @@ CREATE TABLE public.roads (
 CREATE TABLE public.hotels (
   name   text   NOT NULL,
   locationcountry   text   NOT NULL,
-  locationarea   text   NOT NULL,
+  locationname   text   NOT NULL,
   ownercountry   text   NOT NULL,
   ownerpersonnummer   text   NOT NULL,
   FOREIGN KEY (ownercountry, ownerpersonnummer) REFERENCES persons(country, personnummer),
-  FOREIGN KEY (locationcountry, locationarea) REFERENCES cities(country, name),
-  UNIQUE (locationcountry, locationarea, ownercountry, ownerpersonnummer)
-);
-
--- Constants
-CREATE TABLE public.constants (
-  name   text   NOT NULL   PRIMARY KEY,
-  value   numeric   NOT NULL
+  FOREIGN KEY (locationcountry, locationname) REFERENCES cities(country, name),
+  UNIQUE (locationcountry, locationname, ownercountry, ownerpersonnummer)
 );
 
 -- VIEWS
@@ -153,31 +147,6 @@ CREATE VIEW public.nextmoves AS
 
 -- FUNCTIONS
 
-
-
-CREATE FUNCTION public.assert(x numeric, y numeric) RETURNS void AS $$
-BEGIN
-  IF NOT (SELECT trunc(x, 2) = trunc(y, 2))
-  THEN
-    RAISE 'assert(%=%) failed (up to 2 decimal places, checked with trunc())!', x, y;
-  END IF;
-  RETURN;
-END
-$$ LANGUAGE plpgsql;
-
---
-
-CREATE FUNCTION public.assert(x text, y text) RETURNS void AS $$
-BEGIN
-  IF NOT (SELECT x = y)
-  THEN
-    RAISE 'assert(%=%) failed!', x, y;
-  END IF;
-  RETURN;
-END
-$$ LANGUAGE plpgsql;
-
---
 CREATE FUNCTION public.city_check() RETURNS trigger AS $$
 
 BEGIN
@@ -208,12 +177,12 @@ BEGIN
   IF EXISTS (SELECT * FROM hotels WHERE ownerpersonnummer = NEW.ownerpersonnummer
                                         AND ownercountry = NEW.ownercountry
                                         AND locationcountry = NEW.locationcountry
-                                        AND locationarea = NEW.locationarea) THEN
+                                        AND locationname = NEW.locationname) THEN
     RAISE EXCEPTION 'A person can only own one hotel in one city';
     RETURN NULL;
   END IF;
 
-  IF EXISTS (SELECT * FROM cities WHERE country = NEW.locationcountry AND name = NEW.locationarea) THEN
+  IF EXISTS (SELECT * FROM cities WHERE country = NEW.locationcountry AND name = NEW.locationname) THEN
     UPDATE persons
     SET budget = budget - getval('hotelprice')
     WHERE personnummer = NEW.ownerpersonnummer AND country = NEW.ownercountry;
@@ -273,20 +242,9 @@ $$ LANGUAGE plpgsql;
 
 --
 
-CREATE FUNCTION public.getval(qname text) RETURNS numeric AS $$
-DECLARE
-  xxx NUMERIC;
-BEGIN
-  xxx := (SELECT value FROM Constants WHERE name = qname);
-  RETURN xxx;
-END
-$$ LANGUAGE plpgsql;
-
---
-
 CREATE FUNCTION public."gov_noupdate"() RETURNS trigger AS $$
 BEGIN
-  IF OLD.name = 'The government' THEN
+  IF OLD.personnummer = '' THEN
     RETURN NULL;
   END IF;
 
@@ -315,6 +273,9 @@ BEGIN
                                                AND personnummer = NEW.personnummer);
   IF NOT (roadcost = 0) THEN
     NEW.budget = NEW.budget - roadcost;
+    IF (NEW.budget < 0) THEN
+      RAISE EXCEPTION 'No money';
+    END IF;
 
     UPDATE persons
     SET budget = budget + roadcost
@@ -359,31 +320,25 @@ BEGIN
   END IF;
 
   IF EXISTS (SELECT * FROM cities WHERE country=NEW.locationcountry AND name=NEW.locationarea) THEN
-    visitmoney := (SELECT visitbonus FROM cities WHERE country=NEW.locationcountry AND name=NEW.locationarea);
-    NEW.budget = NEW.budget + visitmoney;
-
-    UPDATE cities
-    SET visitbonus = 0
-    WHERE country = NEW.locationcountry AND name = NEW.locationarea;
-
-    IF EXISTS (SELECT * FROM hotels WHERE locationcountry = NEW.locationcountry AND locationarea = NEW.locationarea) THEN
+    IF EXISTS (SELECT * FROM hotels WHERE locationcountry = NEW.locationcountry AND locationname = NEW.locationarea) THEN
       NEW.budget = NEW.budget - getval('cityvisit');
 
+
       hotelowners:=(SELECT Count(ownerpersonnummer) FROM hotels WHERE locationcountry=NEW.locationcountry
-                                                                      AND locationarea=NEW.locationarea);
+                                                                      AND locationname=NEW.locationarea);
       IF EXISTS(SELECT * FROM hotels WHERE locationcountry=NEW.locationcountry
-                                           AND locationarea=NEW.locationarea
+                                           AND locationname=NEW.locationarea
                                            AND ownercountry = NEW.country
                                            AND ownerpersonnummer = NEW.personnummer)THEN
         --The traveling person have a hotel in the city.
         UPDATE persons
         SET budget =  budget+ getval('cityvisit')/hotelowners
         WHERE country = (SELECT ownercountry FROM hotels WHERE locationcountry = NEW.locationcountry
-                                                               AND locationarea = NEW.locationarea
+                                                               AND locationname = NEW.locationarea
                                                                AND ownercountry <> NEW.country
                                                                AND ownerpersonnummer <> NEW.personnummer)
               AND personnummer = (SELECT ownerpersonnummer FROM hotels WHERE locationcountry = NEW.locationcountry
-                                                                             AND locationarea = NEW.locationarea
+                                                                             AND locationname = NEW.locationarea
                                                                              AND ownercountry <> NEW.country
                                                                              AND ownerpersonnummer <> NEW.personnummer);
         NEW.budget = NEW.budget + getval('cityvisit')/hotelowners;
@@ -391,11 +346,17 @@ BEGIN
         UPDATE persons
         SET budget =  budget+ getval('cityvisit')/hotelowners
         WHERE country = (SELECT ownercountry FROM hotels WHERE locationcountry = NEW.locationcountry
-                                                               AND locationarea = NEW.locationarea)
+                                                               AND locationname = NEW.locationarea)
               AND personnummer = (SELECT ownerpersonnummer FROM hotels WHERE locationcountry = NEW.locationcountry
-                                                                             AND locationarea = NEW.locationarea);
+                                                                             AND locationname = NEW.locationarea);
       END IF;
     END IF;
+    visitmoney := (SELECT visitbonus FROM cities WHERE country=NEW.locationcountry AND name=NEW.locationarea);
+    NEW.budget = NEW.budget + visitmoney;
+
+    UPDATE cities
+    SET visitbonus = 0
+    WHERE country = NEW.locationcountry AND name = NEW.locationarea;
   END IF;
   RETURN NEW;
 END;
@@ -433,13 +394,13 @@ $$ LANGUAGE plpgsql;
 CREATE FUNCTION public.updatehotel() RETURNS trigger AS $$
 
 BEGIN
-  IF (NEW.locationcountry <> OLD.locationcountry OR NEW.locationarea <> OLD.locationarea) THEN
+  IF (NEW.locationcountry <> OLD.locationcountry OR NEW.locationname <> OLD.locationname) THEN
     RAISE EXCEPTION 'Can not change the location of a hotel';
   END IF;
   IF EXISTS (SELECT * FROM hotels WHERE ownerpersonnummer = NEW.ownerpersonnummer
                                         AND ownercountry = NEW.ownercountry
                                         AND locationcountry = NEW.locationcountry
-                                        AND locationarea = NEW.locationarea) THEN
+                                        AND locationname = NEW.locationname) THEN
     RAISE EXCEPTION 'A person can only own one hotel in a city';
   END IF;
 

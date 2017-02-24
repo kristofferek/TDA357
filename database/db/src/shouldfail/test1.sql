@@ -48,6 +48,6 @@ INSERT INTO hotels VALUES ('Hilton', 'Denmark', 'Köpenhamn', 'Denmark', '198604
 
 INSERT INTO hotels VALUES ('Hilton 2', 'Denmark', 'Köpenhamn', 'Denmark', '19860404-4040'); -- FAIL
 INSERT INTO hotels VALUES ('Hilton 2', 'Denmark', 'Åhus', 'Denmark', '19860404-4040'); -- FAIL
-UPDATE hotels SET locationcountry='Japan', locationarea='Tokyo' WHERE name = 'Hilton'; -- FAIL
+UPDATE hotels SET locationcountry='Japan', locationname='Tokyo' WHERE name = 'Hilton'; -- FAIL
 
 ROLLBACK;

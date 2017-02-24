@@ -28,7 +28,7 @@ INSERT INTO roads VALUES ('Denmark', 'Köpenhamn', 'Denmark', 'Åhus', 'Denmark'
 SELECT assert((SELECT budget FROM persons WHERE name='Alex Sundbäck'), (5000000-456.9));
 
 UPDATE persons SET locationarea = 'Köpenhamn' WHERE name = 'Claes Magnusson';
-SELECT assert ((SELECT budget FROM persons WHERE name = 'Claes Magnusson'), (400000-7000));
+SELECT assert ((SELECT budget FROM persons WHERE name = 'Claes Magnusson'), (400000-7000+700.50));
 SELECT assert ((SELECT budget FROM persons WHERE name = 'Alex Sundbäck'), ((5000000-456.9)+7000));
 -- Persons and roads test done
 
