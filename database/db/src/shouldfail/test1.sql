@@ -1,5 +1,4 @@
 -- SEVERAL OF THE FOLLOWING STATEMENTS SHOULD FAIL
-
 BEGIN;
 -- COUNTRIES
 INSERT INTO countries VALUES ('Denmark');
@@ -22,6 +21,8 @@ INSERT INTO cities VALUES ('Japan', 'Tokyo', 50);
 
 -- TOWNS
 INSERT INTO towns VALUES ('Denmark', 'Åhus');
+INSERT INTO cities VALUES ('Denmark', 'Åhus'); -- FAIL
+INSERT INTO towns VALUES ('Denmark', 'Köpenhamn'); -- FAIL
 
 -- PERSONS
 INSERT INTO persons VALUES ('Denmark', '199702039906', 'Alex Sundbäck', 'Denmark', 'Köpenhamn', 5000000); -- FAIL
