@@ -57,14 +57,44 @@ public class Game
         System.out.println("    [...] is optional\n");
     }
 
+
+
+    void insertCountry(Connection conn, String country){
+        try{
+            //Countries insert
+            PreparedStatement statement = conn.prepareStatement("INSERT INTO Countries (country) VALUES (?)");
+            statement.setString(1, country);
+            statement.executeUpdate();
+        } catch (SQLException e){
+            System.out.println(e);
+        }
+    }
+
+    void insertArea(Connection conn, String country, String name, String population){
+        try{
+            //Area insert
+            PreparedStatement statement = conn.prepareStatement("INSERT INTO Areas (country, name, population) VALUES (?, ?, ?)");
+            statement.setString(1, country);
+            statement.setString(2, name);
+            statement.setString(3, population);
+            statement.executeUpdate();
+        } catch (SQLException e){
+            System.out.println(e);
+        }
+    }
+
     /* Given a town name, country and population, this function
       * should try to insert an area and a town (and possibly also a country)
       * for the given attributes.
       */
     void insertTown(Connection conn, String name, String country, String population) throws SQLException  {
-        // TODO: Your implementation here
-
-        // TODO TO HERE
+        insertCountry(conn, country);
+        insertArea(conn, country, name, population);
+        //Town insert
+        PreparedStatement statement = conn.prepareStatement("INSERT INTO Towns (country, name) VALUES (?, ?)");
+        statement.setString(1, country);
+        statement.setString(2, name);
+        statement.executeUpdate();
     }
 
     /* Given a city name, country and population, this function
