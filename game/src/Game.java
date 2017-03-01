@@ -195,19 +195,40 @@ public class Game
      * that is identified by the tuple of personnummer and country.
      */
     void listProperties(Connection conn, String personnummer, String country) {
-        // TODO: Your implementation here
+        System.out.println("Properties of " + personnummer+ ", "+ country);
+        try{
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM roads " +
+                    "WHERE ownerpersonnummer = ? AND ownercountry = ?");
+            statement.setString(1, personnummer);
+            statement.setString(2, country);
+            ResultSet rs = statement.executeQuery();
+            System.out.println("Roads:");
+            while (rs.next()){
+                System.out.println("("+rs.getString(1) + ", "+ rs.getString(2)+ ") <--->"
+                        + "("+rs.getString(3) + ", "+ rs.getString(4) + ")");
+            }
 
-        // TODO TO HERE
+            statement = conn.prepareStatement("SELECT name, locationcountry, locationname FROM hotels " +
+                    "WHERE ownerpersonnummer = ? AND ownercountry = ?");
+            statement.setString(1, personnummer);
+            statement.setString(2, country);
+            rs = statement.executeQuery();
+            System.out.println("");
+            System.out.println("Hotels:");
+            while (rs.next()){
+                System.out.println(rs.getString(1) + " in "+ rs.getString(3)+ ", "
+                        +rs.getString(2)+ ".");
+            }
+        } catch (SQLException e){
+            System.out.println(e);
+        }
     }
 
     /* Given a player, this function
      * should list all properties of the player.
      */
     void listProperties(Connection conn, Player person) throws SQLException {
-        // TODO: Your implementation here
-        // hint: Use your implementation of the overlaoded listProperties function
-
-        // TODO TO HERE
+        listProperties(conn, person.personnummer, person.country);
     }
 
     /* This function should print the budget, assets and refund values for all players.
