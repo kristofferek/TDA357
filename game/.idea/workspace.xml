@@ -29,28 +29,29 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="271" column="34" lean-forward="false" selection-start-line="271" selection-start-column="34" selection-end-line="271" selection-end-column="34" />
+            <state relative-caret-position="420">
+              <caret line="258" column="38" lean-forward="false" selection-start-line="258" selection-start-column="38" selection-end-line="258" selection-end-column="38" />
               <folding>
-                <element signature="e#0#22755#0" expanded="true" />
+                <element signature="e#0#23207#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <marker date="1488377651088" expanded="true" signature="2373:2415" ph="INSERT INTO Countries... " />
-                <marker date="1488377651088" expanded="true" signature="2779:2854" ph="INSERT INTO Areas... " />
-                <marker date="1488377651088" expanded="true" signature="3585:3632" ph="INSERT INTO Towns... " />
-                <marker date="1488377651088" expanded="true" signature="4271:4351" ph="INSERT INTO Cities... " />
-                <marker date="1488377651088" expanded="true" signature="4839:5008" ph="INSERT INTO Roads... " />
-                <marker date="1488377651088" expanded="true" signature="5580:5612" ph="SELECT locat... persons" />
-                <marker date="1488377651088" expanded="true" signature="5580:5613" ph="SELECT locat... persons" />
-                <marker date="1488377651088" expanded="true" signature="5580:5651" ph="SELECT locat... persons" />
-                <marker date="1488377651088" expanded="true" signature="6105:6179" ph="SELECT locat... persons" />
-                <marker date="1488377651088" expanded="true" signature="10512:10555" ph="UPDATE perso... " />
-                <marker date="1488377651088" expanded="true" signature="10512:10593" ph="UPDATE perso... " />
-                <marker date="1488377651088" expanded="true" signature="10512:10624" ph="UPDATE perso... " />
-                <marker date="1488377651088" expanded="true" signature="10512:10657" ph="UPDATE perso... " />
-                <marker date="1488377651088" expanded="true" signature="11471:11546" ph="SELECT count... persons" />
-                <marker date="1488377651088" expanded="true" signature="13100:13139" ph="INSERT INTO Countries... " />
-                <marker date="1488377651088" expanded="true" signature="13281:13356" ph="INSERT INTO Areas... " />
-                <marker date="1488377651088" expanded="true" signature="13587:13718" ph="INSERT INTO Persons... " />
+                <marker date="1488378040905" expanded="true" signature="2373:2415" ph="INSERT INTO Countries... " />
+                <marker date="1488378040905" expanded="true" signature="2779:2854" ph="INSERT INTO Areas... " />
+                <marker date="1488378040905" expanded="true" signature="3585:3632" ph="INSERT INTO Towns... " />
+                <marker date="1488378040905" expanded="true" signature="4271:4351" ph="INSERT INTO Cities... " />
+                <marker date="1488378040905" expanded="true" signature="4839:5008" ph="INSERT INTO Roads... " />
+                <marker date="1488378040905" expanded="true" signature="5580:5612" ph="SELECT locat... persons" />
+                <marker date="1488378040905" expanded="true" signature="5580:5613" ph="SELECT locat... persons" />
+                <marker date="1488378040905" expanded="true" signature="5580:5651" ph="SELECT locat... persons" />
+                <marker date="1488378040905" expanded="true" signature="6105:6179" ph="SELECT locat... persons" />
+                <marker date="1488378040905" expanded="true" signature="10161:10202" ph="INSERT INTO Hotels... " />
+                <marker date="1488378040905" expanded="true" signature="10964:11007" ph="UPDATE perso... " />
+                <marker date="1488378040905" expanded="true" signature="10964:11045" ph="UPDATE perso... " />
+                <marker date="1488378040905" expanded="true" signature="10964:11076" ph="UPDATE perso... " />
+                <marker date="1488378040905" expanded="true" signature="10964:11109" ph="UPDATE perso... " />
+                <marker date="1488378040905" expanded="true" signature="11923:11998" ph="SELECT count... persons" />
+                <marker date="1488378040905" expanded="true" signature="13552:13591" ph="INSERT INTO Countries... " />
+                <marker date="1488378040905" expanded="true" signature="13733:13808" ph="INSERT INTO Areas... " />
+                <marker date="1488378040905" expanded="true" signature="14039:14170" ph="INSERT INTO Persons... " />
               </folding>
             </state>
           </provider>
@@ -584,12 +585,12 @@
       <updated>1488275884413</updated>
       <workItem from="1488275889725" duration="19000" />
       <workItem from="1488275952528" duration="5895000" />
-      <workItem from="1488370839203" duration="5850000" />
+      <workItem from="1488370839203" duration="6237000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11764000" />
+    <option name="totallyTimeSpent" value="12151000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="665" y="0" width="1262" height="1057" extended-state="0" />
@@ -677,25 +678,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#22755#0" expanded="true" />
+            <element signature="e#0#23207#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <marker date="1488377651088" expanded="true" signature="2373:2415" ph="INSERT INTO Countries... " />
-            <marker date="1488377651088" expanded="true" signature="2779:2854" ph="INSERT INTO Areas... " />
-            <marker date="1488377651088" expanded="true" signature="3585:3632" ph="INSERT INTO Towns... " />
-            <marker date="1488377651088" expanded="true" signature="4271:4351" ph="INSERT INTO Cities... " />
-            <marker date="1488377651088" expanded="true" signature="4839:5008" ph="INSERT INTO Roads... " />
-            <marker date="1488377651088" expanded="true" signature="5580:5612" ph="SELECT locat... persons" />
-            <marker date="1488377651088" expanded="true" signature="5580:5613" ph="SELECT locat... persons" />
-            <marker date="1488377651088" expanded="true" signature="5580:5651" ph="SELECT locat... persons" />
-            <marker date="1488377651088" expanded="true" signature="6105:6179" ph="SELECT locat... persons" />
-            <marker date="1488377651088" expanded="true" signature="10512:10555" ph="UPDATE perso... " />
-            <marker date="1488377651088" expanded="true" signature="10512:10593" ph="UPDATE perso... " />
-            <marker date="1488377651088" expanded="true" signature="10512:10624" ph="UPDATE perso... " />
-            <marker date="1488377651088" expanded="true" signature="10512:10657" ph="UPDATE perso... " />
-            <marker date="1488377651088" expanded="true" signature="11471:11546" ph="SELECT count... persons" />
-            <marker date="1488377651088" expanded="true" signature="13100:13139" ph="INSERT INTO Countries... " />
-            <marker date="1488377651088" expanded="true" signature="13281:13356" ph="INSERT INTO Areas... " />
-            <marker date="1488377651088" expanded="true" signature="13587:13718" ph="INSERT INTO Persons... " />
+            <marker date="1488378040905" expanded="true" signature="2373:2415" ph="INSERT INTO Countries... " />
+            <marker date="1488378040905" expanded="true" signature="2779:2854" ph="INSERT INTO Areas... " />
+            <marker date="1488378040905" expanded="true" signature="3585:3632" ph="INSERT INTO Towns... " />
+            <marker date="1488378040905" expanded="true" signature="4271:4351" ph="INSERT INTO Cities... " />
+            <marker date="1488378040905" expanded="true" signature="4839:5008" ph="INSERT INTO Roads... " />
+            <marker date="1488378040905" expanded="true" signature="5580:5612" ph="SELECT locat... persons" />
+            <marker date="1488378040905" expanded="true" signature="5580:5613" ph="SELECT locat... persons" />
+            <marker date="1488378040905" expanded="true" signature="5580:5651" ph="SELECT locat... persons" />
+            <marker date="1488378040905" expanded="true" signature="6105:6179" ph="SELECT locat... persons" />
+            <marker date="1488378040905" expanded="true" signature="10161:10202" ph="INSERT INTO Hotels... " />
+            <marker date="1488378040905" expanded="true" signature="10964:11007" ph="UPDATE perso... " />
+            <marker date="1488378040905" expanded="true" signature="10964:11045" ph="UPDATE perso... " />
+            <marker date="1488378040905" expanded="true" signature="10964:11076" ph="UPDATE perso... " />
+            <marker date="1488378040905" expanded="true" signature="10964:11109" ph="UPDATE perso... " />
+            <marker date="1488378040905" expanded="true" signature="11923:11998" ph="SELECT count... persons" />
+            <marker date="1488378040905" expanded="true" signature="13552:13591" ph="INSERT INTO Countries... " />
+            <marker date="1488378040905" expanded="true" signature="13733:13808" ph="INSERT INTO Areas... " />
+            <marker date="1488378040905" expanded="true" signature="14039:14170" ph="INSERT INTO Persons... " />
           </folding>
         </state>
       </provider>
@@ -715,28 +717,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="271" column="34" lean-forward="false" selection-start-line="271" selection-start-column="34" selection-end-line="271" selection-end-column="34" />
+        <state relative-caret-position="420">
+          <caret line="258" column="38" lean-forward="false" selection-start-line="258" selection-start-column="38" selection-end-line="258" selection-end-column="38" />
           <folding>
-            <element signature="e#0#22755#0" expanded="true" />
+            <element signature="e#0#23207#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <marker date="1488377651088" expanded="true" signature="2373:2415" ph="INSERT INTO Countries... " />
-            <marker date="1488377651088" expanded="true" signature="2779:2854" ph="INSERT INTO Areas... " />
-            <marker date="1488377651088" expanded="true" signature="3585:3632" ph="INSERT INTO Towns... " />
-            <marker date="1488377651088" expanded="true" signature="4271:4351" ph="INSERT INTO Cities... " />
-            <marker date="1488377651088" expanded="true" signature="4839:5008" ph="INSERT INTO Roads... " />
-            <marker date="1488377651088" expanded="true" signature="5580:5612" ph="SELECT locat... persons" />
-            <marker date="1488377651088" expanded="true" signature="5580:5613" ph="SELECT locat... persons" />
-            <marker date="1488377651088" expanded="true" signature="5580:5651" ph="SELECT locat... persons" />
-            <marker date="1488377651088" expanded="true" signature="6105:6179" ph="SELECT locat... persons" />
-            <marker date="1488377651088" expanded="true" signature="10512:10555" ph="UPDATE perso... " />
-            <marker date="1488377651088" expanded="true" signature="10512:10593" ph="UPDATE perso... " />
-            <marker date="1488377651088" expanded="true" signature="10512:10624" ph="UPDATE perso... " />
-            <marker date="1488377651088" expanded="true" signature="10512:10657" ph="UPDATE perso... " />
-            <marker date="1488377651088" expanded="true" signature="11471:11546" ph="SELECT count... persons" />
-            <marker date="1488377651088" expanded="true" signature="13100:13139" ph="INSERT INTO Countries... " />
-            <marker date="1488377651088" expanded="true" signature="13281:13356" ph="INSERT INTO Areas... " />
-            <marker date="1488377651088" expanded="true" signature="13587:13718" ph="INSERT INTO Persons... " />
+            <marker date="1488378040905" expanded="true" signature="2373:2415" ph="INSERT INTO Countries... " />
+            <marker date="1488378040905" expanded="true" signature="2779:2854" ph="INSERT INTO Areas... " />
+            <marker date="1488378040905" expanded="true" signature="3585:3632" ph="INSERT INTO Towns... " />
+            <marker date="1488378040905" expanded="true" signature="4271:4351" ph="INSERT INTO Cities... " />
+            <marker date="1488378040905" expanded="true" signature="4839:5008" ph="INSERT INTO Roads... " />
+            <marker date="1488378040905" expanded="true" signature="5580:5612" ph="SELECT locat... persons" />
+            <marker date="1488378040905" expanded="true" signature="5580:5613" ph="SELECT locat... persons" />
+            <marker date="1488378040905" expanded="true" signature="5580:5651" ph="SELECT locat... persons" />
+            <marker date="1488378040905" expanded="true" signature="6105:6179" ph="SELECT locat... persons" />
+            <marker date="1488378040905" expanded="true" signature="10161:10202" ph="INSERT INTO Hotels... " />
+            <marker date="1488378040905" expanded="true" signature="10964:11007" ph="UPDATE perso... " />
+            <marker date="1488378040905" expanded="true" signature="10964:11045" ph="UPDATE perso... " />
+            <marker date="1488378040905" expanded="true" signature="10964:11076" ph="UPDATE perso... " />
+            <marker date="1488378040905" expanded="true" signature="10964:11109" ph="UPDATE perso... " />
+            <marker date="1488378040905" expanded="true" signature="11923:11998" ph="SELECT count... persons" />
+            <marker date="1488378040905" expanded="true" signature="13552:13591" ph="INSERT INTO Countries... " />
+            <marker date="1488378040905" expanded="true" signature="13733:13808" ph="INSERT INTO Areas... " />
+            <marker date="1488378040905" expanded="true" signature="14039:14170" ph="INSERT INTO Persons... " />
           </folding>
         </state>
       </provider>
