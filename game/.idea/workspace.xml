@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12ff4d28-76c0-43a6-a548-f0eada22aa76" name="Default" comment="" />
+    <list default="true" id="12ff4d28-76c0-43a6-a548-f0eada22aa76" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game.java" afterPath="$PROJECT_DIR$/src/Game.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,17 +21,18 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="99" column="39" lean-forward="false" selection-start-line="99" selection-start-column="39" selection-end-line="99" selection-end-column="39" />
+            <state relative-caret-position="459">
+              <caret line="111" column="33" lean-forward="false" selection-start-line="111" selection-start-column="33" selection-end-line="111" selection-end-column="33" />
               <folding>
-                <element signature="e#0#20652#0" expanded="true" />
+                <element signature="e#0#20977#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <marker date="1488371222735" expanded="true" signature="2373:2415" ph="INSERT INTO Countries... " />
-                <marker date="1488371222735" expanded="true" signature="2779:2841" ph="INSERT INTO Areas... " />
-                <marker date="1488371222735" expanded="true" signature="3572:3619" ph="INSERT INTO Towns... " />
-                <marker date="1488371222735" expanded="true" signature="10997:11036" ph="INSERT INTO Countries... " />
-                <marker date="1488371222735" expanded="true" signature="11178:11253" ph="INSERT INTO Areas... " />
-                <marker date="1488371222735" expanded="true" signature="11484:11615" ph="INSERT INTO Persons... " />
+                <marker date="1488374007379" expanded="true" signature="2373:2415" ph="INSERT INTO Countries... " />
+                <marker date="1488374007379" expanded="true" signature="2779:2841" ph="INSERT INTO Areas... " />
+                <marker date="1488374007379" expanded="true" signature="3572:3619" ph="INSERT INTO Towns... " />
+                <marker date="1488374007379" expanded="true" signature="4258:4321" ph="INSERT INTO Cities... " />
+                <marker date="1488374007379" expanded="true" signature="11322:11361" ph="INSERT INTO Countries... " />
+                <marker date="1488374007379" expanded="true" signature="11503:11578" ph="INSERT INTO Areas... " />
+                <marker date="1488374007379" expanded="true" signature="11809:11940" ph="INSERT INTO Persons... " />
               </folding>
             </state>
           </provider>
@@ -126,6 +129,11 @@
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Git\TDA357\game\src" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Game">
     <configuration default="false" name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -544,12 +552,12 @@
       <updated>1488275884413</updated>
       <workItem from="1488275889725" duration="19000" />
       <workItem from="1488275952528" duration="5895000" />
-      <workItem from="1488370839203" duration="515000" />
+      <workItem from="1488370839203" duration="2237000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6429000" />
+    <option name="totallyTimeSpent" value="8151000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -606,31 +614,33 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#20652#0" expanded="true" />
+            <element signature="e#0#20977#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <marker date="1488371222735" expanded="true" signature="2373:2415" ph="INSERT INTO Countries... " />
-            <marker date="1488371222735" expanded="true" signature="2779:2841" ph="INSERT INTO Areas... " />
-            <marker date="1488371222735" expanded="true" signature="3572:3619" ph="INSERT INTO Towns... " />
-            <marker date="1488371222735" expanded="true" signature="10997:11036" ph="INSERT INTO Countries... " />
-            <marker date="1488371222735" expanded="true" signature="11178:11253" ph="INSERT INTO Areas... " />
-            <marker date="1488371222735" expanded="true" signature="11484:11615" ph="INSERT INTO Persons... " />
+            <marker date="1488374007379" expanded="true" signature="2373:2415" ph="INSERT INTO Countries... " />
+            <marker date="1488374007379" expanded="true" signature="2779:2841" ph="INSERT INTO Areas... " />
+            <marker date="1488374007379" expanded="true" signature="3572:3619" ph="INSERT INTO Towns... " />
+            <marker date="1488374007379" expanded="true" signature="4258:4321" ph="INSERT INTO Cities... " />
+            <marker date="1488374007379" expanded="true" signature="11322:11361" ph="INSERT INTO Countries... " />
+            <marker date="1488374007379" expanded="true" signature="11503:11578" ph="INSERT INTO Areas... " />
+            <marker date="1488374007379" expanded="true" signature="11809:11940" ph="INSERT INTO Persons... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="99" column="39" lean-forward="false" selection-start-line="99" selection-start-column="39" selection-end-line="99" selection-end-column="39" />
+        <state relative-caret-position="459">
+          <caret line="111" column="33" lean-forward="false" selection-start-line="111" selection-start-column="33" selection-end-line="111" selection-end-column="33" />
           <folding>
-            <element signature="e#0#20652#0" expanded="true" />
+            <element signature="e#0#20977#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <marker date="1488371222735" expanded="true" signature="2373:2415" ph="INSERT INTO Countries... " />
-            <marker date="1488371222735" expanded="true" signature="2779:2841" ph="INSERT INTO Areas... " />
-            <marker date="1488371222735" expanded="true" signature="3572:3619" ph="INSERT INTO Towns... " />
-            <marker date="1488371222735" expanded="true" signature="10997:11036" ph="INSERT INTO Countries... " />
-            <marker date="1488371222735" expanded="true" signature="11178:11253" ph="INSERT INTO Areas... " />
-            <marker date="1488371222735" expanded="true" signature="11484:11615" ph="INSERT INTO Persons... " />
+            <marker date="1488374007379" expanded="true" signature="2373:2415" ph="INSERT INTO Countries... " />
+            <marker date="1488374007379" expanded="true" signature="2779:2841" ph="INSERT INTO Areas... " />
+            <marker date="1488374007379" expanded="true" signature="3572:3619" ph="INSERT INTO Towns... " />
+            <marker date="1488374007379" expanded="true" signature="4258:4321" ph="INSERT INTO Cities... " />
+            <marker date="1488374007379" expanded="true" signature="11322:11361" ph="INSERT INTO Countries... " />
+            <marker date="1488374007379" expanded="true" signature="11503:11578" ph="INSERT INTO Areas... " />
+            <marker date="1488374007379" expanded="true" signature="11809:11940" ph="INSERT INTO Persons... " />
           </folding>
         </state>
       </provider>

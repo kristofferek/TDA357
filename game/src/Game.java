@@ -103,9 +103,14 @@ public class Game
       * The city visitbonus should be set to 0.
       */
     void insertCity(Connection conn, String name, String country, String population) throws SQLException {
-        // TODO: Your implementation here
-
-        // TODO TO HERE
+        insertCountry(conn, country);
+        insertArea(conn, country, name, population);
+        //City insert
+        PreparedStatement statement = conn.prepareStatement("INSERT INTO Cities (country, name, visitbonus) VALUES (?, ?, ?)");
+        statement.setString(1, country);
+        statement.setString(2, name);
+        statement.setString(3, "0");
+        statement.executeUpdate();
     }
 
     /* Given two areas, this function
