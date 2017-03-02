@@ -448,7 +448,7 @@ public class Game {
         PreparedStatement statement = conn.prepareStatement("SELECT Count(*) FROM Cities VALUES");
         ResultSet rs = statement.executeQuery();
         int size = rs.getInt(1);
-        PreparedStatement statement = conn.prepareStatement("SELECT country,name FROM mytable OFFSET floor(random()*"
+        statement = conn.prepareStatement("SELECT country,name FROM mytable OFFSET floor(random()*"
                 + size +") LIMIT 1");
         rs = statement.executeQuery();
         statement = conn.prepareStatement("UPDATE Cities SET visitbonus = visitbonus + 1000 " +
