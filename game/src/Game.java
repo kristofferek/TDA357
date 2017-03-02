@@ -171,14 +171,14 @@ public class Game {
         String query;
         try
         {
-            query = "SELECT COUNT(*) FROM Areas";
+            query = "SELECT COUNT(*) FROM Areas WHERE name <> \"\" ";
             statement = conn.prepareStatement(query);
             result = statement.executeQuery();
             if (result.next())
             {
                 Random rg = new Random();
                 String offset = rg.nextInt(result.getInt(1)) + "";
-                    query = "SELECT * FROM Areas OFFSET cast(? as BIGINT)";
+                    query = "SELECT * FROM Areas WHERE name <> \"\" OFFSET cast(? as BIGINT)";
                     statement = conn.prepareStatement(query);
                     statement.setString(1, offset);
                     result = statement.executeQuery();
