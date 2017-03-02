@@ -365,11 +365,14 @@ public class Game
         PreparedStatement statement = conn.prepareStatement("SELECT Count(*) FROM Cities VALUES");
         ResultSet rs = statement.executeQuery();
         int size = rs.getInt(1);
-
+        PreparedStatement statement = conn.prepareStatement("SELECT country,name FROM mytable OFFSET floor(random()*"
+                + size +") LIMIT 1");
+        rs = statement.executeQuery();
         statement = conn.prepareStatement("UPDATE Cities SET visitbonus = visitbonus + 1000 " +
-                "WHERE country = ? AND name = ?";
-
-        //TODO: Fixa resten.
+                "WHERE country = ? AND name = ?");
+        statement.setString(1, rs.getString(1));
+        statement.setString(2, rs.getString(2));
+        rs.close();
     }
 
     /* This function should print the winner of the game based on the currently highest budget.
