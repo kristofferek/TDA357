@@ -11,6 +11,7 @@ import java.sql.*; // JDBC stuff.
 import java.util.Properties;
 import java.io.*;  // Reading user input.
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Game
 {
@@ -73,7 +74,8 @@ public class Game
     void insertArea(Connection conn, String country, String name, String population){
         try{
             //Area insert
-            PreparedStatement statement = conn.prepareStatement("INSERT INTO Areas (country, name, population) VALUES (?, ?, cast(? as INT))");
+            PreparedStatement statement = conn.prepareStatement("INSERT INTO Areas (country, name, population) " +
+                    "VALUES (?, ?, cast(? as INT))");
             statement.setString(1, country);
             statement.setString(2, name);
             statement.setString(3, population);
@@ -106,7 +108,8 @@ public class Game
         insertCountry(conn, country);
         insertArea(conn, country, name, population);
         //City insert
-        PreparedStatement statement = conn.prepareStatement("INSERT INTO Cities (country, name, visitbonus) VALUES (?, ?, cast(? as NUMERIC))");
+        PreparedStatement statement = conn.prepareStatement("INSERT INTO Cities (country, name, visitbonus) " +
+                "VALUES (?, ?, cast(? as NUMERIC))");
         statement.setString(1, country);
         statement.setString(2, name);
         statement.setString(3, "0");
@@ -134,7 +137,8 @@ public class Game
      * should return the area name of the player's current location.
      */
     String getCurrentArea(Connection conn, Player person) throws SQLException {
-        PreparedStatement statement = conn.prepareStatement("SELECT locationarea FROM persons WHERE country = ? AND personnummer = ?");
+        PreparedStatement statement = conn.prepareStatement("SELECT locationarea FROM persons WHERE country = ? " +
+                "AND personnummer = ?");
         statement.setString(1, person.country);
         statement.setString(2, person.personnummer);
         ResultSet rs = statement.executeQuery();
@@ -147,7 +151,8 @@ public class Game
      * should return the country name of the player's current location.
      */
     String getCurrentCountry(Connection conn, Player person) throws SQLException {
-        PreparedStatement statement = conn.prepareStatement("SELECT locationcountry FROM persons WHERE country = ? AND personnummer = ?");
+        PreparedStatement statement = conn.prepareStatement("SELECT locationcountry FROM persons WHERE country = ? " +
+                "AND personnummer = ?");
         statement.setString(1, person.country);
         statement.setString(2, person.personnummer);
         ResultSet rs = statement.executeQuery();
@@ -219,6 +224,7 @@ public class Game
                 System.out.println(rs.getString(1) + " in "+ rs.getString(3)+ ", "
                         +rs.getString(2)+ ".");
             }
+            rs.close();
         } catch (SQLException e){
             System.out.println(e);
         }
@@ -356,9 +362,14 @@ public class Game
     /* This function should add the visitbonus of 1000 to a random city
       */
     void setVisitingBonus(Connection conn) throws SQLException {
-        // TODO: Your implementation here
+        PreparedStatement statement = conn.prepareStatement("SELECT Count(*) FROM Cities VALUES");
+        ResultSet rs = statement.executeQuery();
+        int size = rs.getInt(1);
 
-        // TODO TO HERE
+        statement = conn.prepareStatement("UPDATE Cities SET visitbonus = visitbonus + 1000 " +
+                "WHERE country = ? AND name = ?";
+
+        //TODO: Fixa resten.
     }
 
     /* This function should print the winner of the game based on the currently highest budget.
