@@ -1,0 +1,14 @@
+TOWN Sigtuna Sweden 8444
+TOWN Ystad Sweden 30000
+CITY Goteborg Sweden 549789
+ROAD Sigtuna Sweden Goteborg Sweden
+CITY Stockholm Sweden 1000000
+CITY Malmo Sweden 300000
+ROAD Malmo Sweden Ystad Sweden
+ROAD Goteborg Sweden Stockholm Sweden
+ROAD Stockholm Sweden Malmo Sweden
+CITY Kopenhamn Denmark 1200000
+TOWN Ahus Denmark 100000
+ROAD Kopenhamn Denmark Malmo Sweden
+
+ROAD Kopenhamn Denmark Ahus Denmark

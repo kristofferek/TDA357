@@ -23,6 +23,7 @@ public class Game {
 
         public Player(String name, String nr, String cntry, String startingArea) {
             this.playername = name;
+            System.out.println(nr);
             this.personnummer = nr;
             this.country = cntry;
             this.startingArea = startingArea;
@@ -61,7 +62,7 @@ public class Game {
     void insertCountry(Connection conn, String country) {
         try {
             //Countries insert
-            PreparedStatement statement = conn.prepareStatement("INSERT INTO Countries (country) VALUES (?)");
+            PreparedStatement statement = conn.prepareStatement("INSERT INTO Countries (name) VALUES (?)");
             statement.setString(1, country);
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -165,7 +166,6 @@ public class Game {
       * The location should be random and the budget should be 1000.
      */
     int createPlayer(Connection conn, Player person) throws SQLException {
-        // TODO: Your implementation here
         ResultSet result;
         PreparedStatement statement;
         String query;
@@ -178,7 +178,7 @@ public class Game {
             {
                 Random rg = new Random();
                 String offset = rg.nextInt(result.getInt(1)) + "";
-                    query = "SELECT * FROM Areas WHERE OFFSET = ?";
+                    query = "SELECT * FROM Areas OFFSET cast(? as BIGINT)";
                     statement = conn.prepareStatement(query);
                     statement.setString(1, offset);
                     result = statement.executeQuery();
@@ -187,7 +187,7 @@ public class Game {
                     String locationcountry = result.getString(1);
                     String locationarea = result.getString(2);
                     statement = conn.prepareStatement
-                            ("INSERT INTO Persons (country + personnummer + name + locationcountry + locationarea + budget) VALUES (?, ?, ?, ?, ?, ?)");
+                            ("INSERT INTO Persons (country, personnummer, name, locationcountry, locationarea, budget) VALUES (?, ?, ?, ?, ?, cast(? AS NUMERIC))");
                     statement.setString(1, person.country);
                     statement.setString(2, person.personnummer);
                     statement.setString(3, person.playername);
@@ -200,6 +200,7 @@ public class Game {
             } else return 0;
         }
         catch (SQLException e) {
+            System.out.println(e);
             return 0;
         }
     }
@@ -502,6 +503,8 @@ public class Game {
 
             final Connection conn = DriverManager.getConnection(url, props);
 
+
+
 			/* This block creates the government entry and the necessary
 			 * country and area for that.
 			 */
@@ -556,6 +559,7 @@ public class Game {
                 if ("new player".startsWith(cmd[0]) && (cmd.length == 5)) {
                     Player nextplayer = new Player(cmd[1], cmd[2], cmd[3], cmd[4]);
                     if (createPlayer(conn, nextplayer) == 1) {
+                        System.out.println("Player was created!");
                         players.add(nextplayer);
                     }
                 } else if ("done".startsWith(cmd[0]) && (cmd.length == 1)) {
