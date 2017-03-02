@@ -30,8 +30,8 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
-              <caret line="106" column="9" lean-forward="false" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
+            <state relative-caret-position="396">
+              <caret line="597" column="64" lean-forward="false" selection-start-line="597" selection-start-column="64" selection-end-line="597" selection-end-column="64" />
               <folding>
                 <element signature="e#0#27424#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -605,12 +605,12 @@
       <workItem from="1488275952528" duration="5895000" />
       <workItem from="1488370839203" duration="13099000" />
       <workItem from="1488437362235" duration="651000" />
-      <workItem from="1488442848205" duration="3988000" />
+      <workItem from="1488442848205" duration="4590000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23652000" />
+    <option name="totallyTimeSpent" value="24254000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -847,8 +847,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="106" column="9" lean-forward="false" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
+        <state relative-caret-position="396">
+          <caret line="597" column="64" lean-forward="false" selection-start-line="597" selection-start-column="64" selection-end-line="597" selection-end-column="64" />
           <folding>
             <element signature="e#0#27424#0" expanded="true" />
             <element signature="imports" expanded="true" />
